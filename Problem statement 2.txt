@@ -1,0 +1,256 @@
+Test Case 1:- New User Success : 200 ok
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Pratik",
+    "lastName": "Dakhole",
+    "phoneNumber": 8830591918,
+    "emailId": "pratik19dakhole@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+
+Test Case 2:-Duplicate Number :400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Mahi",
+    "lastName": "Raut",
+    "phoneNumber": 8830591918,
+    "emailId": "Mahi12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+Test Case 3:- User Already Exists : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Mahi",
+    "lastName": "Raut",
+    "phoneNumber": 9586321478,
+    "emailId": "Mahi12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+Test Case 4:-First Name should be string : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "12",
+    "lastName": "Raut",
+    "phoneNumber": 9586321478,
+    "emailId": "Mahi12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+Test Case 5:-Phone number In proper format : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Mahi",
+    "lastName": "Raut",
+    "phoneNumber": "Rudram",
+    "emailId": "Mahi12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+Test Case 6:- Required Field Should not be null : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920064",
+    "Content-Type": "application/json"
+  },
+  "data": "{\r\n\"firstName\":\"Mahi\",\r\n\"lastName\": \"Raut\",\r\n\"phoneNumber\": ,\r\n\"emailId\": \"Mahi12@gmail.com\"\r\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+Test Case 7: Email Required field : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "240345920500",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Harshay",
+    "lastName": "Raut",
+    "phoneNumber": 7755889966,
+    "emailId": "hari12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+Test Case 8:Roll Number not written : 401 Authentication Failed
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Harshay",
+    "lastName": "Raut",
+    "phoneNumber": 7755889966,
+    "emailId": "hari12@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+Test Case 9 : content type- plain 
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "1",
+    "Content-Type": "text/plain"
+  },
+  "data": "{\r\n\"firstName\":\"Akshat\",\r\n\"lastName\": \"Raut\",\r\n\"phoneNumber\": 1111111111,\r\n\"emailId\": \"ha88@gmail.com\"\r\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+Test Case 10: SQL Injection : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "1",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "Akshat",
+    "lastName": "Raut",
+    "phoneNumber": 222222222,
+    "emailId": "ha88@gmail.com' OR '1'='1"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+Test Case 11: Max length : 400 Bad
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "1",
+    "Content-Type": "application/json"
+  },
+  "data": "{\r\n\"firstName\":\"Akshat\" * 255,\r\n\"lastName\": \"Raut\" * 255,\r\n\"phoneNumber\": 222222222,\r\n\"emailId\": \"ha88@gmail.com\"\r\n}",
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+
+Test Case 12: Case Sensitive Email : 200 Ok
+
+var settings = {
+  "url": "https://bfhldevapigw.healthrx.co.in/automation-campus/create/user",
+  "method": "POST",
+  "timeout": 0,
+  "headers": {
+    "roll-number": "45",
+    "Content-Type": "application/json"
+  },
+  "data": JSON.stringify({
+    "firstName": "kanak",
+    "lastName": "Raut",
+    "phoneNumber": 4567239817,
+    "emailId": "HHHH@gmail.com"
+  }),
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
